@@ -1,0 +1,9 @@
+<button (click)="onToggleDetails()">Display Details</button>
+
+<p *ngIf="displayDetails">Secret Password = tuna</p>
+
+<div
+  *ngFor="let log of logArray; index as i;"
+  [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'transparent'}"
+  [ngClass]="{'white': i >= 4}"
+>{{log}}</div>

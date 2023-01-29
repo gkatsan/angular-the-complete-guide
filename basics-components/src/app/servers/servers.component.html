@@ -1,6 +1,4 @@
-<app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
 
 <hr><!------------------>
 
@@ -14,7 +12,12 @@ allowNewServer: <span [innerText]="allowNewServer"></span> <!--Property binding-
 
 <p>{{ serverCreationStatus }}</p> <!--String interpolation-->
 
-<hr><!------------------>
+<p *ngIf="serverCreated">
+  <span *ngIf="serverName; else noServerName">Server name is: {{ serverName }}</span>
+  <ng-template #noServerName>
+    <span>Please enter a server name:</span>
+  </ng-template>
+</p>
 
 <label>Server Name</label>
 <input
